@@ -92,7 +92,8 @@ Bai 1 - Mun 1 - E1
 CEP:11111-111 Tel (11) 1111-1111
 Obs 1
 CNPJ: 11.111.111/1111-11
-IE: 123456789`
+IE: 123456789
+`;
 
 const TEXTO_ESPERADO_SEM_NUMERO_SEM_COMPLEMENTO_SEM_BAIRRO: string = `Loja 1
 Log 1, s/n
@@ -100,7 +101,8 @@ Mun 1 - E1
 CEP:11111-111 Tel (11) 1111-1111
 Obs 1
 CNPJ: 11.111.111/1111-11
-IE: 123456789`
+IE: 123456789
+`;
 
 
 test('Loja Completa', () => {
@@ -219,18 +221,18 @@ test('Número zero, complemento e bairro vazios', () => {
 test('Exercício 2 - customizado', () => {
 
   // Defina seus próprios valores para as variáveis a seguir
-  let nome_loja = "";
-  let logradouro = "";
-  let numero = 0;
+  let nome_loja = "Tropical";
+  let logradouro = "Rua siqueira Campos";
+  let numero = 580;
   let complemento = "";
-  let bairro = "";
-  let municipio = "";
-  let estado = "";
-  let cep = "";
-  let telefone = "";
+  let bairro = "Centro";
+  let municipio = "Paulista";
+  let estado = "Pernambuco";
+  let cep = "53401-320";
+  let telefone = "(81) 3438-5714";
   let observacao = "";
-  let cnpj = "";
-  let inscricao_estadual = "";
+  let cnpj = "37.886.772/0001-82";
+  let inscricao_estadual = "4232303-79";
 
   let loja_customizada: Loja = new Loja(nome_loja, logradouro, numero,
     complemento, bairro, municipio, estado, cep, telefone, observacao, cnpj,
@@ -238,6 +240,12 @@ test('Exercício 2 - customizado', () => {
 
   //E atualize o texto esperado abaixo
   expect(loja_customizada.dados_loja()).toBe(
-      `
+      `Tropical
+Rua siqueira Campos, 580
+Centro - Paulista - Pernambuco
+CEP:53401-320 Tel (81) 3438-5714
+
+CNPJ: 37.886.772/0001-82
+IE: 4232303-79
 `);
 });
